@@ -7,7 +7,7 @@ steps:
     args: [ 'push' , 'gcr.io/$PROJECT_ID/gcpdevops']
 
   - id: "deploy to cloud run"
-    name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    name: 'gcr.io/$PROJECT_ID/gcpdevops'
     args:
     - run
     - --filename=dep.yaml
@@ -16,8 +16,3 @@ steps:
     - --cluster=devops-gcp
     - --namespace=gcp-devops-prod
      
-
-
-
-
-

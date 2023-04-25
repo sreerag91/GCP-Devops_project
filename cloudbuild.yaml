@@ -1,13 +1,23 @@
 steps:
-- name: "gcr.io/cloud-builders/docker"
-  args: [ 'build' , '-t' , 'gcr.io/$PROJECT_ID/gcpdevops', '.'] 
-- name: "gcr.io/cloud-builders/docker"
-  args: [ 'push' , 'gcr.io/$PROJECT_ID/gcpdevops']
-- name: "gcr.io/$PROJECT_ID/gcpdevops"
-  args:
-  - run
-  - --filename=dep.yaml
-  - --image=gcr.io/$PROJECT_ID/gcpdevops
-  - --location=us-central1-c
-  - --cluster=devops-gcp
-  - --namespace=gcp-devops-prod
+  - id: "build image"
+    name: "gcr.io/cloud-builders/docker"
+    args: [ 'build' , '-t' , 'gcr.io/$PROJECT_ID/gcpdevops', '.']
+  - id: "push image"
+    name: "gcr.io/cloud-builders/docker"
+    args: [ 'push' , 'gcr.io/$PROJECT_ID/gcpdevops']
+
+  - id: "deploy to cloud run"
+    name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    args:
+    - run
+    - --filename=dep.yaml
+    - --image=gcr.io/$PROJECT_ID/gcpdevops
+    - --location=us-central1-c
+    - --cluster=devops-gcp
+    - --namespace=gcp-devops-prod
+     
+
+
+
+
+

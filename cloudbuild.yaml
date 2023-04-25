@@ -7,7 +7,7 @@ steps:
   args:
   - run
   - --filename=dep.yaml
-  - --image=gcr.io/$PROJECT_ID/gcpdevop1s
+  - --image=gcr.io/$PROJECT_ID/gcpdevops
   - --location=us-central1-c
   - --cluster=devops-gcp
   - --namespace=gcp-devops-prod

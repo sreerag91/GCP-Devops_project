@@ -1,9 +1,9 @@
 steps:
-- name: "gcr.io/sacred-atom-384814/gcpdevops"
+- name: "gcr.io/cloud-builders/docker"
   args: [ 'build' , '-t' , 'gcr.io/$PROJECT_ID/gcpdevops', '.'] 
-- name: "gcr.io/sacred-atom-384814/gcpdevops"
+- name: "gcr.io/cloud-builders/docker"
   args: [ 'push' , 'gcr.io/$PROJECT_ID/gcpdevops']
-- name: "gcr.io/sacred-atom-384814/gcpdevops"
+- name: "gcr.io/gcr.io/cloud-builders/gke-deploy"
   args:
   - run
   - --filename=dep.yaml

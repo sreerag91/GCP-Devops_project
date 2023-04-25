@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: gcp-devops-gke
-        image: gcr.io/cloud-builders/docker/test:latest
+        image: gcr.io/sacred-atom-384814/sreerag:latest 
         ports:
         - containerPort: 5000
         env:
